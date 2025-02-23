@@ -1,6 +1,24 @@
 # k8s-poc-automation
 
-Git Repository Folder Structure
+k8s-poc-automation for Selenium Test
+
+🚀 Step-by-Step Guide: Deploying POC with Kubernetes, Helm, and ArgoCD
+
+This guide will walk you through deploying a POC on Kubernetes that includes: 
+
+✅ A Flask Web App (API)
+
+✅ Selenium Grid for UI testing
+
+✅ Selenium Test Job for automated tests
+
+✅ Allure Reports for test reporting
+
+✅ ArgoCD for automated GitOps deployment
+
+✅ Exposing services for external access in Docker Desktop Kubernetes (Kind) and Cloud Kubernetes
+
+📂 Folder Structure
 
 ```sh
 📦 k8s-poc-automation
@@ -27,7 +45,19 @@ Git Repository Folder Structure
  ┣ 📜 argocd-app.yaml        # ArgoCD Application Manifest
 ```
 
-k8s-poc-automation for Selenium Test
+1️⃣ Build and Push Docker Images
+📌 Flask App (docker/Dockerfile-flask)
+📌 Selenium Test (docker/Dockerfile-tests)
+
+Build and Push Docker Images
+
+```sh
+docker build -t your-dockerhub/flask-app -f docker/Dockerfile-flask .
+docker push your-dockerhub/flask-app
+
+docker build -t your-dockerhub/selenium-test -f docker/Dockerfile-tests .
+docker push your-dockerhub/selenium-test
+```
 
 📌 Deploy Selenium Grid with Helm:
 
