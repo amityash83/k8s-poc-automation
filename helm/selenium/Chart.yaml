@@ -1,0 +1,4 @@
+apiVersion: v2
+name: selenium-grid
+description: Helm chart for deploying Selenium Grid with Chrome Nodes
+version: 0.1.0

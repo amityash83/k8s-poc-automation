@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-hub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: selenium-hub
+  template:
+    metadata:
+      labels:
+        app: selenium-hub
+    spec:
+      containers:
+      - name: selenium-hub
+        image: "{{ .Values.hub.image }}:{{ .Values.hub.tag }}"
+        ports:
+        - containerPort: {{ .Values.hub.port }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-node-chrome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: selenium-node-chrome
+  template:
+    metadata:
+      labels:
+        app: selenium-node-chrome
+    spec:
+      containers:
+      - name: selenium-node-chrome
+        image: "{{ .Values.chromeNode.image }}:{{ .Values.chromeNode.tag }}"
+        env:
+        - name: HUB_HOST
+          value: "selenium-hub"
+        ports:
+        - containerPort: {{ .Values.chromeNode.vncPort }}
+        - containerPort: {{ .Values.chromeNode.nodePort }}

@@ -1,0 +1,10 @@
+hub:
+  image: selenium/hub
+  tag: latest
+  port: 4444
+
+chromeNode:
+  image: selenium/node-chrome-debug
+  tag: latest
+  vncPort: 5900
+  nodePort: 5555
