@@ -3,7 +3,7 @@
 Git Repository Folder Structure
 
 ```sh
-📦 k8s-poc
+📦 k8s-poc-automation
  ┣ 📂 manifests/             # Raw Kubernetes YAML files
  ┃ ┣ 📜 flask-app.yaml       # Web App Deployment & Service
  ┃ ┣ 📜 selenium-grid.yaml   # Selenium Grid Deployment & Service
