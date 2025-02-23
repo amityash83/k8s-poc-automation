@@ -1,0 +1,4 @@
+apiVersion: v2
+name: allure
+description: Helm chart for Allure Report Service
+version: 0.1.0

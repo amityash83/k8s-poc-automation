@@ -1,0 +1,11 @@
+image:
+  repository: frankescobar/allure-docker-service
+  tag: latest
+
+service:
+  type: LoadBalancer
+  port: 5050
+
+persistence:
+  enabled: true
+  size: 1Gi

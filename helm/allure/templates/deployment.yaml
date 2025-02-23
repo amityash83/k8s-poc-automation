@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: allure-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: allure-server
+  template:
+    metadata:
+      labels:
+        app: allure-server
+    spec:
+      containers:
+      - name: allure
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        ports:
+        - containerPort: {{ .Values.service.port }}
+        volumeMounts:
+        - name: allure-storage
+          mountPath: /app/allure-results
+      volumes:
+      - name: allure-storage
+        persistentVolumeClaim:
+          claimName: allure-pvc
