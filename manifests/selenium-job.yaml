@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: selenium-test-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: selenium-test
+        image: your-dockerhub/selenium-test:latest
+        command: ["pytest"]
+      restartPolicy: Never
+  backoffLimit: 2
