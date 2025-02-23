@@ -1,7 +1,9 @@
 hub:
   image: selenium/hub
+  kind: kind
   tag: latest
   port: 4444
+  nodePort: 30444
 
 chromeNode:
   image: selenium/node-chrome-debug
