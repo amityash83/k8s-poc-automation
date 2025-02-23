@@ -1,4 +1,9 @@
-replicas: 2
+replicaCount: 1
 image:
   repository: your-dockerhub/flask-app
   tag: latest
+service:
+  kind: kind  # Use "cloud" for Cloud Kubernetes
+  nodePort: 30080
+  port: 80
+  targetPort: 5000
